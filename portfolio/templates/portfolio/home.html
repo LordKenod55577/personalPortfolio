@@ -1,0 +1,25 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content%}
+
+{% load static %}
+
+
+<div class="row">
+    {% for project in projects %}
+    <div class="col-lq-4 col-md-4">
+      {% if project.url %}
+      <h2><br><a href="{{ project.url }}">{{ project.title }}</a></h2>
+      {% else %}
+      <h2>{{ project.title }}</h2>
+      {% endif %}
+
+    <p>{{ project.description }}</p>
+    <img src="{{ project.image.url }}" height=160>
+
+    </div>
+
+    {% endfor %}
+    </div>
+
+{% endblock %}
